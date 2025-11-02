@@ -1,0 +1,137 @@
+<!--
+Single-file HTML mockup for "ConsultasAvvogado.com" website UI preview.
+Usage: Save as consultas_mockup.html and open in a browser. No external assets required.
+Change colors, text, or timings as needed.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ConsultasAvvogado - Mockup</title>
+  <style>
+    :root{
+      --navy:#0C223F; /* dark blue */
+      --orange:#F58220; /* accent orange */
+      --soft:#F5F6F8; /* background */
+      --card:#FFFFFF;
+      --muted:#94A1B2;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;margin:0;background:var(--soft);}
+    .frame{width:1200px;max-width:95%;height:675px;margin:28px auto;background:#fff;border-radius:10px;box-shadow:0 12px 30px rgba(6,18,40,0.08);overflow:hidden;padding:28px;position:relative}
+
+    /* Address bar */
+    .address{height:54px;display:flex;align-items:center;gap:12px;padding:10px 18px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfbfd);box-shadow:inset 0 -1px 0 rgba(12,34,63,0.03);}
+    .dots{width:86px;display:flex;gap:8px;align-items:center}
+    .dot{width:12px;height:12px;border-radius:50%;background:#e4e7ea}
+    .url{flex:1;padding:8px 12px;border-radius:20px;background:#f1f3f6;color:#5e6a78;font-weight:600}
+
+    /* header */
+    .header{display:flex;align-items:center;gap:18px;margin-top:14px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo svg{width:62px;height:62px}
+    .brand{font-weight:700;font-size:36px;color:var(--navy)}
+    .brand .accent{color:var(--orange)}
+
+    /* layout */
+    .content{display:flex;gap:36px;margin-top:26px}
+    .left{width:360px}
+    .avatar{width:100%;height:320px;background:linear-gradient(180deg,#f6f7f8,#eef1f4);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(12,34,63,0.04);}
+    .avatar .sil{width:120px;height:160px;background:linear-gradient(180deg,#0C223F,#3b5978);border-radius:6px}
+
+    .main{flex:1;display:flex;align-items:flex-start;gap:24px}
+    .headline{flex:1}
+    .headline h1{font-size:42px;margin:0;color:var(--navy);line-height:1.02}
+
+    /* cards stack */
+    .cards{width:320px;display:flex;flex-direction:column;gap:16px}
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 8px 22px rgba(12,34,63,0.06);display:flex;align-items:center;gap:12px;font-weight:600;color:var(--navy);transform:translateY(36px);opacity:0}
+    .stars{color:var(--orange);font-weight:800}
+    .tick{background:#e6f7eb;border-radius:8px;padding:6px}
+
+    /* small details */
+    .muted{color:var(--muted);font-weight:600}
+
+    /* animations */
+    @keyframes slideUp {from{transform:translateY(36px);opacity:0}to{transform:translateY(0);opacity:1}}
+    @keyframes popIn {0%{transform:scale(.9);opacity:0}60%{transform:scale(1.06);opacity:1}100%{transform:scale(1);}}
+
+    .logo-appear{animation:popIn .6s cubic-bezier(.22,.9,.34,1) forwards}
+    .card.show{animation:slideUp .55s cubic-bezier(.22,.9,.34,1) forwards}
+
+    /* responsiveness */
+    @media (max-width:980px){.frame{padding:16px}.brand{font-size:28px}.headline h1{font-size:28px}.cards{width:260px}}
+
+    /* subtle pulsing */
+    .pulse{animation: pulse 2.8s ease-in-out infinite}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.01)}100%{transform:scale(1)}}
+
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="address">
+      <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="url">www.consultasavvogado.com</div>
+    </div>
+
+    <div class="header">
+      <div class="logo logo-appear">
+        <!-- Inline SVG logo (scale icon + rounded bg) -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect rx="14" width="100" height="100" fill="var(--navy)"/>
+          <g transform="translate(18,22) scale(0.7)">
+            <path d="M31 6h-2v8h-6v6h20v-6h-6V6h-2z" fill="var(--orange)" />
+            <path d="M10 28c0-1 2-2 4-2s4 1 4 2c0 2-2 6-4 6s-4-4-4-6z" fill="var(--orange)" transform="translate(8,0)"/>
+            <path d="M36 28c0-1 2-2 4-2s4 1 4 2c0 2-2 6-4 6s-4-4-4-6z" fill="var(--orange)" transform="translate(0,0)"/>
+          </g>
+        </svg>
+        
+      </div>
+      <div class="brand" style="display:flex;align-items:baseline;gap:4px"><span>Consultas</span><span class="accent">Avvogado</span><span style="color:var(--navy);font-weight:600;font-size:20px;margin-left:6px">.com</span></div>
+    </div>
+
+    <div class="content">
+      <div class="left">
+        <div class="avatar" title="Attorney Placeholder">
+          <div class="sil"></div>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="headline">
+          <h1>Find Attorneys. <br>Connect with Clients.</h1>
+          <p class="muted" style="margin-top:12px">Profiles, reviews, and bilingual support — find the right match for your needs.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card" id="card1"><div style="flex:1">Reviews</div><div class="stars">★★★★★</div></div>
+          <div class="card" id="card2"><div style="flex:1">Bilingual Profiles</div></div>
+          <div class="card" id="card3"><div style="flex:1">Verified Attorneys</div><div class="tick">✔</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // small script to stagger card entrance and ensure proper spelling check
+    const delay = (ms)=>new Promise(r=>setTimeout(r,ms));
+    async function reveal(){
+      await delay(420);
+      document.querySelector('.logo').classList.add('logo-appear');
+      await delay(320);
+      document.getElementById('card1').classList.add('show');
+      await delay(180);
+      document.getElementById('card2').classList.add('show');
+      await delay(180);
+      document.getElementById('card3').classList.add('show');
+    }
+    reveal();
+
+    // quick accessibility: ensure spelled domain matches your exact spelling; you can modify the address bar text above.
+  </script>
+</body>
+</html>
